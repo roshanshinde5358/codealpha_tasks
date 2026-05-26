@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Store</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Simple E-Commerce Store</h1>
+
+  <% if(user){ %>
+    <p>Welcome <%= user.name %></p>
+    <a href="/logout">Logout</a>
+  <% } else { %>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+  <% } %>
+
+  <a href="/cart">Cart</a>
+
+  <div class="products">
+    <% products.forEach(product => { %>
+      <div class="card">
+        <img src="<%= product.image %>" width="150">
+        <h3><%= product.name %></h3>
+        <p>₹<%= product.price %></p>
+        <a href="/product/<%= product._id %>">View</a>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>
