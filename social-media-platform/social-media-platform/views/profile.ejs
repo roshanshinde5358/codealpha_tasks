@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1><%= user.name %>'s Profile</h1>
+
+<p>Email: <%= user.email %></p>
+<p>Followers: <%= user.followers %></p>
+
+<h2>Your Posts</h2>
+
+<% posts.forEach(post => { %>
+  <div class="post">
+    <p><%= post.content %></p>
+  </div>
+<% }) %>
+
+</body>
+</html>

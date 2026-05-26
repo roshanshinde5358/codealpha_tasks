@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Post</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1>Post Details</h1>
+
+<div class="post">
+  <h3><%= post.user %></h3>
+  <p><%= post.content %></p>
+</div>
+
+<h2>Comments</h2>
+
+<% comments.forEach(comment => { %>
+  <div class="comment">
+    <b><%= comment.user %></b>
+    <p><%= comment.text %></p>
+  </div>
+<% }) %>
+
+<form action="/comment/<%= post._id %>" method="POST">
+  <input type="text" name="text" placeholder="Write comment">
+  <button type="submit">Comment</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Social App</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1>Mini Social Media App</h1>
+
+<% if(user){ %>
+  <p>Welcome <%= user.name %></p>
+  <a href="/profile">Profile</a>
+  <a href="/logout">Logout</a>
+
+  <form action="/create-post" method="POST">
+    <textarea name="content" placeholder="Write a post"></textarea>
+    <button type="submit">Post</button>
+  </form>
+
+<% } else { %>
+  <a href="/login">Login</a>
+  <a href="/register">Register</a>
+<% } %>
+
+<hr>
+
+<% posts.forEach(post => { %>
+  <div class="post">
+    <h3><%= post.user %></h3>
+    <p><%= post.content %></p>
+
+    <p>Likes: <%= post.likes %></p>
+
+    <a href="/like/<%= post._id %>">Like</a>
+    <a href="/post/<%= post._id %>">Comments</a>
+  </div>
+<% }) %>
+
+</body>
+</html>
